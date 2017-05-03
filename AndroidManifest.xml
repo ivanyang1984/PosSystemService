@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xgd.possystemservice"
+    android:versionCode="1"
+    android:versionName="v1.1" 
+    android:sharedUserId="android.uid.system"
+    >
+
+    <uses-permission android:name="android.permission.INSTALL_PACKAGES"/> 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_CACHE_FILESYSTEM"/>
+    <uses-permission android:name="android.permission.REBOOT"/>
+    <uses-permission android:name="android.permission.RECOVERY" />
+    <uses-permission android:name="android.permission.MASTER_CLEAR" />
+    <uses-permission android:name="android.permission.SET_TIME" />
+    
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <!--  
+        android:sharedUserId="android.uid.system"
+        <activity
+            android:name="com.xgd.ccbsystemservice.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
+        <service
+            android:name="com.xgd.smartpos.systemservice.SystemInterfaceService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.xgd.smartpos.service.SYSTEM_APIMANAGER" />
+            </intent-filter>
+        </service>
+        
+    </application>
+
+</manifest>
